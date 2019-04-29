@@ -36,7 +36,8 @@ const greeting=(firstName, lastName)=>{console.log(`Hello ${firstName} ${lastNam
 
 // Explain in your own words why `nestedfunction()` can access the variable `internal`.
 
-// Explanation: 
+// Explanation: nestedfuncion() can access the variable internal because a closure has the ability
+// to the variable called internal because the local variable and the nested function have the same local scope.
 
 
 const external = "I'm outside the function";
