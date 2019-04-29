@@ -1,25 +1,26 @@
 // 1. Copy and paste your prototype in here and refactor into class syntax.
-function CuboidMaker(newObj){
+class CuboidMaker{
+    constructor(newObj){
     this.length = newObj.length;
     this.width = newObj.width;
     this.height = newObj.height;
-    
-    
-  }
-  CuboidMaker.prototype.volume = function(){
-    let vol = this.length * this.height * this.width;
-    console.log(`The volume is ${vol}`);
+    }
+    volume(){
+      let vol = this.length * this.height * this.width;
+      console.log(`The volume is ${vol}`);
+    }
+    surfaceArea(){
+      let sArea = 2 *(this.length*(this.width+this.height)+(this.width*this.height));
+      console.log(`The surface area is ${sArea}.`);
+    }
   }
 
-  CuboidMaker.prototype.surfaceArea = function(){
-    let sArea = 2 *(this.length*(this.width+this.height)+(this.width*this.height));
-    console.log(`The surface area is ${sArea}.`);
-  }
 
 class Cuboid extends CuboidMaker{
     constructor(newObj){
         super(newObj);
     }
+    
 }
 const cuboid = new Cuboid ({
     length:4,
