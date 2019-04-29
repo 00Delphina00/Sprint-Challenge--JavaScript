@@ -19,7 +19,10 @@ const add=(a,b)=>{
   let sum = (a+b);
   console.log(`The sum is ${sum}`);
 }
-const multiply=(a,b)=>{return a*b;}
+const multiply=(a,b)=>{
+  let product = a*b;
+  console.log(`The product is ${product}.`);
+}
 const greeting=(firstName, lastName)=>{console.log(`Hello ${firstName} ${lastName}, nice to meet you!`);}
 
 
