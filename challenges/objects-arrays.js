@@ -73,7 +73,7 @@ Once you have the new array created, sort the universities alphabetically and lo
 const universities = [];
 for (let i=0; i < graduates.length; i++){
     let item = (graduates[i].university);
-    universities.push(item);
+    universities[i] = item;
     universities.sort();
 }
 console.log(universities)
@@ -87,13 +87,23 @@ Log the result of your new array. */
 const contactInfo = [];
 for (let i=0; i<graduates.length; i++){
   let item = {"firstName":graduates[i].first_name, "email":graduates[i].email};
-  contactInfo.push(item);
+  contactInfo[i]= item;
 }
 console.log(contactInfo);
 
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called uni that contains them all. Log the result. */
 const uni = [];
+
+for(let i=0; i<graduates.length; i++){
+   let checkName = [];
+   checkName = graduates[i].split();
+   for(let i=0; i<checkName.length; i++){
+      if(checkName[i] === "U" && checkName[i+1] === "n" && checkName[i+2] === i){
+       return(`University name contains "Uni".`);
+   } 
+  }
+}
 console.log(uni);
 
 
