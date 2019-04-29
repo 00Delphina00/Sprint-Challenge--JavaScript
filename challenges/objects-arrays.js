@@ -74,6 +74,7 @@ const universities = [];
 for (let i=0; i < graduates.length; i++){
     let item = (graduates[i].university);
     universities.push(item);
+    universities.sort();
 }
 console.log(universities)
 
