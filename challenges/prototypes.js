@@ -25,7 +25,7 @@ console.log(cube1);
 */
  CuboidMaker.prototype.volume = function(){
   let vol = this.length * this.height * this.width;
-  console.log(vol);
+  console.log(`The volume is ${vol}`);
  }
  cube1.volume();
 /* == Step 3: Surface Area Method ==
