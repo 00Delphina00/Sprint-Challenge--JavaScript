@@ -6,29 +6,50 @@
   object name, diet, weight, length, period
 */
 
-// tyrannosaurus, carnivorous, 7000kg, 12m, Late Cretaceous
+const tyrannosaurus = {
+  name: "tyrannosaurus",
+  diet:"carnivorous", 
+  weight: "7000kg", 
+  length: "12m", 
+  period: "Late Cretaceous"
+}; 
 
-// stegosaurus, herbivorous, 2000kg, 9m, Late Jurassic
+// , herbivorous, 2000kg, 9m, Late Jurassic
+const stegosaurus = {
+  name: "stegosaurus",
+  diet:"herbivorous",
+  weight: "2,000kg",
+  length: "9m",
+  period:"Late Jurassic"
+}
 
 // velociraptor, carnivorous, 15kg, 1.8m, Late Cretaceous
-
+const velociraptor = {
+  name: "velociraptor",
+  diet: "carnivorous",
+  weight: "15kg",
+  length: "1.8m",
+  period: "Late Cretaceous"
+}
 // Using your dinosaur objects, log answers to these questions:
 
 // How much did tyrannosaurus weigh?
-console.log();
+console.log(tyrannosaurus.weight);
 
 // What was the diet of a velociraptor?
-console.log();
+console.log(velociraptor.diet);
 
 // How long was a stegosaurus?
-console.log();
+console.log(stegosaurus.length);
 
 // What time period did tyrannosaurus live in?
-console.log();
+console.log(tyrannosaurus.period);
 
 
 // Create a new roar method for the tyrannosaurus.  When called, return "RAWERSRARARWERSARARARRRR!" Log the result.
-console.log();
+tyrannosaurus.speak = "RAWERSRARARWERSARARARRRR!";
+
+console.log(tyrannosaurus.speak);
 
 
 // ==== Arrays ====
@@ -50,6 +71,11 @@ const graduates = [{"id":1,"first_name":"Cynde","university":"Missouri Southern 
 
 Once you have the new array created, sort the universities alphabetically and log the result. */
 const universities = [];
+for (let i=0; i < graduates.length; i++){
+    let item = (graduates[i].university);
+    universities[i] = item;
+    universities.sort();
+}
 console.log(universities)
 
 /* Request 2: Create a new array called contactInfo that contains both first name and email of each student. 
@@ -59,11 +85,26 @@ Name email@example.com
 
 Log the result of your new array. */
 const contactInfo = [];
+for (let i=0; i<graduates.length; i++){
+  let item = {"firstName":graduates[i].first_name, "email":graduates[i].email};
+  contactInfo[i]= item;
+}
 console.log(contactInfo);
 
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called uni that contains them all. Log the result. */
 const uni = [];
+
+for (let i = 0; i < universities.length; i ++){
+  let u = universities[i].split("");
+    for (let i = 0; i <u.length; i++){ 
+      if (u[i] === "U" && u[i+1] === "n" && u[i+2] === "i"){
+        let add = u.join("");
+        uni.push(add);
+      }
+    }
+}
+
 console.log(uni);
 
 
@@ -89,23 +130,36 @@ The zoo wants to display both the scientific name and the animal name in front o
 
 */
 const animalNames = [];
+
+zooAnimals.forEach((state, index)=>{
+   animalNames.push({"Common_Name":state.animal_name, "Scientific_Name":state.scientific_name});
+
+});
+
 console.log(animalNames);
 
-/* Request 2: .map()    
+/* Request 2: .map() 
 
 The zoos need a list of all their animal's names (names only, not scientific) converted to lower case.  Create a new array named lowerCase and map over each name to convert them all to lower case.  Log the resut.
 
 */
 
-const lowerCase = [];
+const lowerCase = animalNames.map((state, index)=>{
+      let lowerCaseCommonName = state.Common_Name.toLowerCase();
+      return lowerCaseCommonName;
+
+});
 console.log(lowerCase); 
 
 /* Request 3: .filter() 
 
+
 The zoos are concenred about animals with a lower population count. Find out which animals have a population less than 5.
 
 */
-const largerPopulation = [];
+const largerPopulation = zooAnimals.filter((state)=>{
+   return state.population < 5;
+});
 console.log(largerPopulation);
 
 /* Request 4: .reduce() 
@@ -113,8 +167,10 @@ console.log(largerPopulation);
 The zoos need to know their total animal population across the United States.  Find the total population from all the zoos using the .reduce() method.
 
 */
-const populationTotal = 0;
-console.log(populationTotal);
+const populationTotal = zooAnimals.reduce((total, state)=>{
+    return  total += state.population;
+}, 0);
+console.log(`The total zoo animal population is ${populationTotal} animals.`);
 
 
 /* 
